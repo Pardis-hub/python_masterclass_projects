@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pardis | Projects</title>
+
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,600" />
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/all.min.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/templatemo-style.css') }}">
+</head>
+
+<body>
+<div class="container-fluid">
+
+  <!-- Header -->
+  <div class="row tm-brand-row">
+    <div class="col-lg-4 col-10">
+      <h1 class="text-uppercase tm-brand-name">Projects</h1>
+    </div>
+
+    <div class="col-lg-8 col-2 tm-nav-col">
+      <nav class="navbar navbar-expand-lg navbar-light tm-navbar">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="{{ url_for('home') }}">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{{ url_for('skills') }}">Skills</a>
+            </li>
+            <li class="nav-item active">
+              <a class="nav-link" href="{{ url_for('projects') }}">Projects</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </div>
+  </div>
+
+  <!-- Projects -->
+  <div class="row tm-welcome-row">
+    <div class="col-12 tm-page-cols-container">
+
+      <!-- Left -->
+      <div class="tm-page-col-left tm-bg-primary p-4">
+        <p>
+          A selection of academic and personal projects focused on
+          programming, engineering analysis, and structured problem-solving.
+        </p>
+      </div>
+
+      <!-- Right -->
+      <div class="tm-page-col-right p-4">
+
+        {% for project in projects %}
+          <div class="mb-5">
+            <h4>{{ project.title }}</h4>
+            <p>{{ project.description }}</p>
+
+            {% if project.github %}
+              <a href="{{ project.github }}" target="_blank" class="btn btn-sm btn-primary">
+                View on GitHub
+              </a>
+            {% endif %}
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+
+  <footer class="row tm-page-footer">
+    <p class="col-12 text-center mb-0">© 2025 Pardis Razaghian</p>
+  </footer>
+
+</div>
+
+<script src="{{ url_for('static', filename='js/jquery.min.js') }}"></script>
+<script src="{{ url_for('static', filename='js/parallax.min.js') }}"></script>
+<script src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script>
+</body>
+</html>

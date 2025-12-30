@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pardis Razaghian | Portfolio</title>
+
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,600" />
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/all.min.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/templatemo-style.css') }}">
+</head>
+
+<body>
+<div class="container-fluid">
+
+  <!-- Header / Brand -->
+  <div class="row tm-brand-row">
+    <div class="col-lg-4 col-10">
+      <div class="tm-brand-container">
+        <h1 class="text-uppercase tm-brand-name">About Me</h1>
+      </div>
+    </div>
+
+    <!-- Navigation -->
+    <div class="col-lg-8 col-2 tm-nav-col">
+      <nav class="navbar navbar-expand-lg navbar-light tm-navbar">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item active">
+              <a class="nav-link" href="{{ url_for('home') }}">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{{ url_for('skills') }}">Skills</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{{ url_for('projects') }}">Projects</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </div>
+  </div>
+
+  <!-- Welcome Section -->
+<div class="container-fluid py-5">
+  <div class="row align-items-center">
+    
+    <!-- TEXT -->
+    <div class="col-lg-7 col-md-8">
+      <div class="tm-bg-primary p-5 home-hero">
+        <p class="tm-welcome-text">
+          Hi, I’m Pardis Razaghian. I am an Aerospace engineer with expertise in composite materials and structural analysis.
+          I’m building skills in Python, web development, and data-driven engineering applications.
+          I aspire to contribute to cutting‑edge research in machine learning and composite material.
+        </p>
+      </div>
+    </div>
+
+    <!-- IMAGE -->
+    <div class="col-lg-5 col-md-4 text-center">
+      <img
+        src="{{ url_for('static', filename='img/home.jpg') }}"
+        class="img-fluid rounded"
+        alt="Home image">
+    </div>
+
+  </div>
+</div>
+
+
+  <!-- Footer -->
+  <footer class="row tm-page-footer">
+    <p class="col-12 mb-0 text-center">
+      © 2025 Pardis Razaghian
+    </p>
+  </footer>
+
+</div>
+
+<script src="{{ url_for('static', filename='js/jquery.min.js') }}"></script>
+<script src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script>
+</body>
+</html>
