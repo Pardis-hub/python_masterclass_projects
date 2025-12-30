@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>User Interests Form</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="bg-light">
+
+<div class="container mt-5">
+
+    <h2 class="mb-4">User Interest Form</h2>
+
+    {% if error %}
+        <div class="alert alert-danger">{{ error }}</div>
+    {% endif %}
+
+    <!-- Form -->
+    <form method="post" class="card card-body mb-4">
+
+        <div class="mb-3">
+            <label class="form-label">Name *</label>
+            <input type="text" name="name" class="form-control" required>
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Age *</label>
+            <input type="text" name="age" class="form-control" required>
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Interest</label>
+            <input type="text" name="interest" class="form-control"
+                   placeholder="Sports, Painting, Programming, ...">
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Interest Level</label>
+            <select name="level" class="form-select">
+                {% for i in range(1, 11) %}
+                    <option value="{{ i }}">{{ i }}</option>
+                {% endfor %}
+            </select>
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Additional Description</label>
+            <textarea name="description" class="form-control" rows="3"></textarea>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+
+    <!-- Table -->
+    {% if records %}
+        <h4>Submitted Records</h4>
+
+        <table class="table table-bordered table-striped">
+            <thead class="table-dark">
+            <tr>
+                <th>#</th>
+                <th>Name</th>
+                <th>Age</th>
+                <th>Interest</th>
+                <th>Level</th>
+                <th>Description</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for r in records %}
+                <tr>
+                    <td>{{ loop.index }}</td>
+                    <td>{{ r.name }}</td>
+                    <td>{{ r.age }}</td>
+                    <td>{{ r.interest }}</td>
+                    <td>{{ r.level }}</td>
+                    <td>{{ r.description }}</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    {% endif %}
+
+</div>
+
+</body>
+</html>
